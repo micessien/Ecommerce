@@ -42,6 +42,6 @@ class UsersTableSeeder extends Seeder
         $author->roles()->attach($authorRole);
         $user->roles()->attach($userRole);
 
-        factory(App\User::class, 50)->create();
+        factory(App\User::class, 5)->create();
     }
 }
