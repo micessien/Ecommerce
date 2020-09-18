@@ -1,11 +1,26 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center"><img src="https://micaeldie.com/images/favicon.ico" width="400"></p>
 
-## Project Authentification
+## Project Laravel Authentification
+
+### Requirements
+
+---
+
+-   PHP >= 7.1.3
+-   PDO PHP extension
+-   Laravel >= 5.8.x
+-   JSON PHP extension
+-   OpenSSL PHP extension
+-   Tokenizer PHP extension
+-   XML PHP extension
+-   Mbstring PHP extension
+-   Ctype PHP extension
+-   BCMath PHP extension
 
 ### Set Database
 
 -   Names in MySQL your database `laravel_auth` or whatever you want
--   File you file `.env` and make the config
+-   Fill your file `.env` and make the config
 
 ### Run the App
 
@@ -19,6 +34,7 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
+-   [Upgrade Guide, from 5.7 to 5.8.0](https://laravel.com/docs/5.8/upgrade)
 -   [Simple, fast routing engine](https://laravel.com/docs/routing).
 -   [Powerful dependency injection container](https://laravel.com/docs/container).
 -   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
