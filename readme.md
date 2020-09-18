@@ -2,6 +2,15 @@
 
 ## Project Laravel Authentification
 
+### Features available
+
+-   Sign up
+-   Sign In
+-   Email verification (Set for role `User` but you can extend)
+-   Reset password by sending Password Reset link
+-   Manage Users (Edit, Delete, Impersonate) only as <strong>Admin</strong> role
+-   Exiting role by default (seed): Admin, Author, User. Check `RolesTableSeeder`
+
 ### Requirements
 
 ---
