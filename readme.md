@@ -1,4 +1,4 @@
-<p align="center"><img src="https://micaeldie.com/images/favicon.ico" width="400"></p>
+<p align="center"><a href="https://micaeldie.com" target="_blank"><img src="https://micaeldie.com/images/logo.png" width="400"></a></p>
 
 ## Project Laravel Authentification
 
