@@ -17,11 +17,6 @@
 -   Ctype PHP extension
 -   BCMath PHP extension
 
-### Set Database
-
--   Names in MySQL your database `laravel_auth` or whatever you want
--   Fill your file `.env` and make the config
-
 ### Run the App
 
 -   Install dependencies `composer install`
@@ -29,6 +24,19 @@
 -   Migrate database Run `php artisan migrate`
 -   Run `php artisan db:seed` to run seeders, if any.
 -   And run the local server `php artisan serve`
+
+### Set Email sender System
+
+-   You can use any provider `Gmail`, `Outlook`, for easy testing you can use [Mailtrap](https://mailtrap.io/)
+-   Create an account with mailtrap go to `Demo inbox > SMTP Setings`
+-   Under `Integrations` choose Laravel and copy the config
+-   Come back in the project inside the `.env` file remplace all the `MAIL_xxxx` by the config from <strong>Mailtrap</strong>
+-   That's it, enjoy Email Verification and Reset Password features
+
+### Set Database
+
+-   Names in MySQL your database `laravel_auth` or whatever you want
+-   Fill your file `.env` and make the config
 
 ## About Laravel
 
