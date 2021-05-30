@@ -24,8 +24,14 @@ Route::get('/admin', function(){
 })->middleware(['auth', 'auth.admin']);
 
 Route::namespace('Admin')->prefix('admin')->middleware(['auth', 'auth.admin'])->name('admin.')->group(function(){
-    Route::resource('users', 'UserController', ['except' => ['show', 'create', 'store']]);
+    Route::resource('users', 'UserController', ['except' => ['show']]);
     Route::get('/impersonate/user/{id}', 'ImpersonateController@index')->name('impersonate');
 });
 
 Route::get('/admin/impersonate/destroy', 'Admin\ImpersonateController@destroy')->name('admin.impersonate.destroy');
+
+// Management Users
+Route::namespace('Admin')->group(function(){
+    Route::get('user/register', 'RegisterUserController@registrationForm')->name('user.register')->middleware('auth');
+    Route::post('user/register', 'RegisterUserController@registerUser')->name('user.register.store')->middleware('auth');
+});
