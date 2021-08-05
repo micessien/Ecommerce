@@ -34,11 +34,16 @@ class ProductController extends Controller
     {
         if($req->session()->has('user'))
         {
-            $cart = new Cart;
-            $cart->user_id =  $req->session()->get('user')['id'];
-            $cart->product_id =  $req->product_id;
-            $cart->save();
-            return redirect('/');
+            if(Cart::where('user_id','=',$req->session()->get('user')['id'])->where('product_id','=',$req->product_id)->exists())
+            {
+                echo "Already in your cart";
+            } else {
+                $cart = new Cart;
+                $cart->user_id =  $req->session()->get('user')['id'];
+                $cart->product_id =  $req->product_id;
+                $cart->save();
+                return redirect('/');
+            }
         } else {
             return redirect('login');
         }
