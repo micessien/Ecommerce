@@ -16,7 +16,7 @@
 
 ---
 
--   Laravel >= 6.x
+-   Laravel >= 7.x
 -   PHP >= 7.2.5
 -   BCMath PHP extension
 -   Ctype PHP extension
