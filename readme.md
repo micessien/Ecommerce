@@ -8,6 +8,7 @@
 -   Sign In
 -   Email verification (Set for role `User` but you can extend)
 -   Reset password by sending Password Reset link
+-   Create User from Admin account
 -   Manage Users (Edit, Delete, Impersonate) only as <strong>Admin</strong> role
 -   Exiting role by default (seed): Admin, Author, User. Check `RolesTableSeeder`
 
@@ -15,16 +16,17 @@
 
 ---
 
--   PHP >= 7.1.3
--   PDO PHP extension
--   Laravel >= 5.8.x
+-   Laravel >= 6.x
+-   PHP >= 7.2.5
+-   BCMath PHP extension
+-   Ctype PHP extension
+-   Fileinfo PHP Extension
 -   JSON PHP extension
+-   Mbstring PHP extension
 -   OpenSSL PHP extension
+-   PDO PHP extension
 -   Tokenizer PHP extension
 -   XML PHP extension
--   Mbstring PHP extension
--   Ctype PHP extension
--   BCMath PHP extension
 
 ### Run the App
 
@@ -51,7 +53,6 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
--   [Upgrade Guide, from 5.7 to 5.8.0](https://laravel.com/docs/5.8/upgrade)
 -   [Simple, fast routing engine](https://laravel.com/docs/routing).
 -   [Powerful dependency injection container](https://laravel.com/docs/container).
 -   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
