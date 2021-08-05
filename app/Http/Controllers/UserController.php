@@ -8,7 +8,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    //
+    // Login page
     function login(Request $req)
     {
         $user = User::where(['email'=>$req->email])->first();

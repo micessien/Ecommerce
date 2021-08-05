@@ -19,9 +19,9 @@
 </head>
 
 <body>
-    {{View::make('header')}}
+    {{View::make('partials.ecomm.header')}}
     @yield('content')
-    {{View::make('footer')}}
+    {{View::make('partials.ecomm.footer')}}
 </body>
 <style>
     .custom-login {

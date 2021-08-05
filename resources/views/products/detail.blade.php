@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.ecomm.master')
 
 @section('content')
 <div class="container">

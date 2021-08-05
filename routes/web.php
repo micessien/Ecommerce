@@ -15,7 +15,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/login', function () {
-    return view('login');
+    return view('auth.ecomm.login');
 });
 
 Route::get('/logout', function () {

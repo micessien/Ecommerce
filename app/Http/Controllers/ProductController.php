@@ -11,25 +11,28 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    //
+    // List of all products
     function index()
     {
         $data = Product::all();
-        return view('product', ['products'=>$data]);
+        return view('products.product', ['products'=>$data]);
     }
 
+    // Get detail product
     function detail($id)
     {
         $data = Product::find($id);
-        return view('detail', ['product'=>$data]);
+        return view('products.detail', ['product'=>$data]);
     }
 
+    // Get product search
     function search(Request $req)
     {
         $data = Product::where('name', 'like', '%'.$req->input('query').'%')->get();
-        return view('search', ['products'=>$data]);
+        return view('products.search', ['products'=>$data]);
     }
 
+    // Add product in cart
     function addToCart(Request $req)
     {
         if($req->session()->has('user'))
@@ -49,32 +52,37 @@ class ProductController extends Controller
         }
     }
 
+    // Get number of item in cart
     static function cartItem()
     {
         $userId = Session::get('user')['id'];
         return Cart::where('user_id', $userId)->count();
     }
 
+    // List of all products in cart
     function cartList()
     {
         $userId = Session::get('user')['id'];
         $products = DB::table('cart')->join('products', 'cart.product_id','=','products.id')->where('cart.user_id', $userId)->select('products.*', 'cart.id as cart_id')->get();
-        return view('cartlist', ['products'=>$products]);
+        return view('products.cartlist', ['products'=>$products]);
     }
 
+    // Remove products in cart
     function removeCart($id)
     {
         Cart::destroy($id);
         return redirect('cartlist');
     }
 
+    // Page of product we want to order plus the total price
     function ordernow()
     {
         $userId = Session::get('user')['id'];
         $total = DB::table('cart')->join('products', 'cart.product_id','=','products.id')->where('cart.user_id', $userId)->sum('products.price');
-        return view('ordernow', ['total'=>$total]);
+        return view('products.ordernow', ['total'=>$total]);
     }
 
+    // Place the order
     function orderPlace(Request $req)
     {
         $userId = Session::get('user')['id'];
@@ -94,10 +102,11 @@ class ProductController extends Controller
         return redirect('/');
     }
 
+    // Show my order
     function myOrders()
     {
         $userId = Session::get('user')['id'];
         $orders = DB::table('orders')->join('products', 'orders.product_id','=','products.id')->where('orders.user_id', $userId)->get();
-        return view('myorders', ['orders'=>$orders]);
+        return view('products.myorders', ['orders'=>$orders]);
     }
 }
