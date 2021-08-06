@@ -17,7 +17,7 @@
 ---
 
 -   Laravel >= 8.x
--   PHP >= 7.2.5
+-   PHP >= 7.3.0
 -   BCMath PHP extension
 -   Ctype PHP extension
 -   Fileinfo PHP Extension
