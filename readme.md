@@ -16,7 +16,7 @@
 
 ---
 
--   Laravel >= 7.x
+-   Laravel >= 8.x
 -   PHP >= 7.2.5
 -   BCMath PHP extension
 -   Ctype PHP extension
@@ -70,3 +70,10 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 ## Logs doc
 
 This document is showing all the errors with details fix during the implementation [access](https://docs.google.com/spreadsheets/d/12pktYG4xKnKlBfSmpT2MaYTQJYlRzmfoGezyzD_qLQQ)
+
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
