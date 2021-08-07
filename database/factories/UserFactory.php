@@ -2,10 +2,23 @@
 
 namespace Database\Factories;
 
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\Role;
 
+/*
+|--------------------------------------------------------------------------
+| Model Factories
+|--------------------------------------------------------------------------
+|
+| This directory should contain each of the model factory definitions for
+| your application. Factories provide a convenient way to generate new
+| model instances for testing / seeding your application's database.
+|
+*/
 class UserFactory extends Factory
 {
     /**
@@ -42,6 +55,19 @@ class UserFactory extends Factory
             return [
                 'email_verified_at' => null,
             ];
+        });
+    }
+
+    /**
+     * Configure the model factory.
+     *
+     * @return $this
+     */
+    public function configure()
+    {
+        return $this->afterCreating(function (User $user) {
+            $roles = Role::where('name', 'user')->get();
+            $user->roles()->sync($roles->pluck('id')->toArray());
         });
     }
 }

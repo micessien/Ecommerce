@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
 
@@ -17,9 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'firstname', 'email', 'password',
     ];
 
     /**
@@ -28,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'remember_token',
+        'password', 'remember_token',
     ];
 
     /**
@@ -39,4 +37,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+    }
+
+    // User role helper methods
+    public function hasAnyRoles($roles){
+        return null !== $this->roles()->whereIn('name', $roles)->first();
+    }
+
+    public function hasAnyRole($role){
+        return null !== $this->roles()->where('name', $role)->first();
+    }
 }
