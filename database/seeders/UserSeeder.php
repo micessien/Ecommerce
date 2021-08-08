@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
+        DB::table('users')->truncate();
         DB::table('role_user')->truncate();
 
         $adminRole = Role::where('name', 'admin')->first();
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         $user = User::create([
             'firstname' => 'User',
             'name' => 'User',
-            'email' => 'user@user.co',
+            'email' => 'user@user.com',
             'password' => Hash::make('user'),
         ]);
 
