@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\ProductController;
 $total=0;
-if(Session::has('user'))
+if(auth()->user())
 {
     $total = ProductController::cartItem();
 }

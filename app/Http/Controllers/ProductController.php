@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
-use Session;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -35,7 +34,7 @@ class ProductController extends Controller
     // Add product in cart
     function addToCart(Request $req)
     {
-        if($req->session()->has('user'))
+        if(auth()->user()->id)
         {
             if(Cart::where('user_id','=',auth()->user()->id)->where('product_id','=',$req->product_id)->exists())
             {
