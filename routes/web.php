@@ -20,20 +20,15 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-// Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/detail/{detail}', [ProductController::class, 'detail']);
 Route::get('/search', [ProductController::class, 'search']);
-Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
-Route::get('/cartlist', [ProductController::class, 'cartList']);
-Route::get('/removecart/{id}', [ProductController::class, 'removeCart']);
-Route::get('/ordernow', [ProductController::class, 'orderNow']);
-Route::post('/orderplace', [ProductController::class, 'orderPlace']);
-Route::get('/myorders', [ProductController::class, 'myOrders']);
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::post('/add_to_cart', [ProductController::class, 'addToCart'])->middleware('auth');
+Route::get('/cartlist', [ProductController::class, 'cartList'])->middleware('auth');
+Route::get('/removecart/{id}', [ProductController::class, 'removeCart'])->middleware('auth');
+Route::get('/ordernow', [ProductController::class, 'orderNow'])->middleware('auth');
+Route::post('/orderplace', [ProductController::class, 'orderPlace'])->middleware('auth');
+Route::get('/myorders', [ProductController::class, 'myOrders'])->middleware('auth');
 
 Auth::routes(['verify' => true]);
 

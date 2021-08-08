@@ -34,17 +34,22 @@ if(Session::has('user'))
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/cartlist">Cart({{$total}})</a></li>
-                @if (Session::has('user'))
+                @guest
+                <li><a href="/login">Login</a></li>
+                @else
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{Session::get('user')['name']}}
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ Auth::user()->name }}
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="/logout"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
                     </ul>
                 </li>
-                @else
-                <li><a href="/login">Login</a></li>
-                @endif
+                @endguest
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
