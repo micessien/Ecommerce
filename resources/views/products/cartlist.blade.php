@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="">
-                        <h3>{{$item->name}}</h3>
+                        <h3> @isset($item->cart_quantity){{$item->cart_quantity}}@endisset - {{$item->name}}</h3>
                         <h5>{{$item->description}}</h5>
                     </div>
                 </div>

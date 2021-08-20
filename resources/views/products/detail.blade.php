@@ -15,7 +15,11 @@
             <br><br>
             <form action="/add_to_cart" method="POST">
                 @csrf
-                <input type="hidden" name="product_id" value="{{$product->id}}">
+                <input type="text" style="margin-bottom: 10px"
+                    class="form-control @error('quantity') is-invalid @enderror" name="quantity" value="1"
+                    placeholder="Quantity" />
+
+                <input type="hidden" name="product_id" value="{{$product->id}}" />
                 <button class="btn btn-primary">Add to Cart</button>
             </form>
             <br><br>

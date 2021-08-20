@@ -43,6 +43,7 @@ class ProductController extends Controller
                 $cart = new Cart;
                 $cart->user_id =  auth()->user()->id;
                 $cart->product_id =  $req->product_id;
+                $cart->quantity =  $req->quantity;
                 $cart->save();
                 return redirect('/');
             }
@@ -62,7 +63,7 @@ class ProductController extends Controller
     function cartList()
     {
         $userId = auth()->user()->id;
-        $products = DB::table('cart')->join('products', 'cart.product_id','=','products.id')->where('cart.user_id', $userId)->select('products.*', 'cart.id as cart_id')->get();
+        $products = DB::table('cart')->join('products', 'cart.product_id','=','products.id')->where('cart.user_id', $userId)->select('products.*', 'cart.id as cart_id', 'cart.quantity as cart_quantity')->get();
         return view('products.cartlist', ['products'=>$products]);
     }
 
@@ -90,6 +91,7 @@ class ProductController extends Controller
             $order = new Order;
             $order->product_id = $cart->product_id;
             $order->user_id = $cart->user_id;
+            $order->quantity = $cart->quantity;
             $order->status = 'pending';
             $order->payment_method = $req->payment;
             $order->payment_status = 'pending';
